@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electric Turquoise — Tesla Wolfe | Reel Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquoise:#2FB8AC;
+    --turquoise-deep:#1F8078;
+    --matrix:#131C19;
+    --matrix-2:#1C2A25;
+    --matrix-3:#233932;
+    --clay:#A8442C;
+    --gold:#D4A947;
+    --bone:#EDE6D6;
+    --bone-dim:#9FA79F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--matrix);
+    color:var(--bone);
+    font-family:'Spectral', serif;
+    line-height:1.5;
+  }
+  a{color:inherit;}
+
+  /* ---- marquee bulb border ---- */
+  .marquee-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 18px;
+    background:#0E1512;
+  }
+  .marquee-row span{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 6px 1px rgba(212,169,71,.9);
+    opacity:.35;
+    animation:chase 3.6s ease-in-out infinite;
+  }
+  @keyframes chase{
+    0%,100%{opacity:.25;}
+    50%{opacity:1;box-shadow:0 0 10px 3px rgba(212,169,71,1);}
+  }
+  .marquee-row span:nth-child(odd){animation-delay:.4s;}
+  .marquee-row span:nth-child(3n){animation-delay:.9s;}
+  .marquee-row span:nth-child(4n){animation-delay:1.3s;}
+  @media (prefers-reduced-motion: reduce){
+    .marquee-row span{animation:none;opacity:.8;}
+  }
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;
+    padding:72px 24px 56px;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(47,184,172,.16), transparent 55%),
+      radial-gradient(ellipse at 82% 70%, rgba(168,68,44,.14), transparent 50%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.015) 0 2px, transparent 2px 26px),
+      var(--matrix);
+    border-bottom:1px solid rgba(212,169,71,.25);
+  }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    letter-spacing:.28em;
+    font-size:12px;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  h1.brand{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    font-size:clamp(48px, 9vw, 108px);
+    letter-spacing:.03em;
+    line-height:.92;
+    margin:14px 0 6px;
+    color:var(--bone);
+    text-shadow:0 0 34px rgba(47,184,172,.45);
+  }
+  .brand em{
+    font-style:normal;
+    color:var(--turquoise);
+  }
+  .subtitle{
+    font-family:'Space Mono', monospace;
+    font-size:14px;
+    letter-spacing:.06em;
+    color:var(--bone-dim);
+    margin-bottom:26px;
+  }
+  .bio{
+    max-width:640px;
+    margin:0 auto;
+    font-size:17px;
+    color:var(--bone-dim);
+  }
+  .bio strong{color:var(--bone);font-weight:600;}
+  .sectors{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+    margin-top:28px;
+  }
+  .sectors span{
+    font-family:'Space Mono', monospace;
+    font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+    padding:7px 14px;border-radius:100px;
+    border:1px solid rgba(47,184,172,.4);
+    color:var(--turquoise);
+  }
+  .links-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:24px;
+    font-family:'Space Mono', monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    padding:10px 22px;border-radius:100px;
+    border:1px solid var(--gold);color:var(--gold);
+    text-decoration:none;
+    transition:background .18s ease, color .18s ease;
+  }
+  .links-cta:hover{background:var(--gold);color:var(--matrix);}
+  .links-cta svg{width:14px;height:14px;flex:none;}
+
+  /* ---- section framing ---- */
+  section.block{padding:52px 24px;max-width:1140px;margin:0 auto;}
+  .section-head{
+    display:flex;align-items:baseline;gap:16px;
+    margin-bottom:26px;
+    border-bottom:1px solid rgba(237,230,214,.14);
+    padding-bottom:12px;
+  }
+  .section-head .eyebrow{color:var(--turquoise);}
+  .section-head h2{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;font-size:30px;letter-spacing:.01em;
+    margin:0;color:var(--bone);
+  }
+  .section-note{
+    font-family:'Space Mono', monospace;
+    font-size:12px;color:var(--bone-dim);margin-left:auto;
+  }
+
+  /* ---- featured (now showing) ---- */
+  .featured-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:18px;
+  }
+  .featured-card{
+    position:relative;
+    background:linear-gradient(160deg, var(--matrix-3), var(--matrix-2));
+    border:1px solid rgba(212,169,71,.5);
+    border-radius:4px;
+    padding:20px 20px 18px;
+    text-decoration:none;
+    display:block;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .featured-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+    box-shadow:0 10px 26px -8px rgba(212,169,71,.5);
+  }
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Space Mono', monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 9px;border-radius:100px;margin-bottom:12px;
+  }
+  .tag.gold{background:rgba(212,169,71,.14);color:var(--gold);border:1px solid rgba(212,169,71,.4);}
+  .tag.teal{background:rgba(47,184,172,.14);color:var(--turquoise);border:1px solid rgba(47,184,172,.4);}
+  .card-title{
+    font-weight:600;font-size:18px;color:var(--bone);margin:0 0 4px;
+  }
+  .card-sub{
+    font-size:13.5px;color:var(--bone-dim);margin:0;
+  }
+  .platform{
+    display:flex;align-items:center;gap:6px;
+    margin-top:14px;font-family:'Space Mono', monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-dim);
+  }
+  .platform svg{width:14px;height:14px;flex:none;}
+
+  /* ---- ticket-stub reel cards ---- */
+  .reel-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px,1fr));
+    gap:16px;
+  }
+  .reel-card{
+    position:relative;
+    background:var(--matrix-2);
+    border:1px solid rgba(237,230,214,.12);
+    border-radius:3px;
+    padding:16px 16px 14px 22px;
+    text-decoration:none;
+    display:block;
+    transition:transform .16s ease, border-color .16s ease, background .16s ease;
+  }
+  .reel-card::before{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:10px;
+    background-image:radial-gradient(circle, var(--matrix) 2.2px, transparent 2.3px);
+    background-size:10px 12px;
+    background-position:0 4px;
+  }
+  .reel-card:hover{
+    transform:translateY(-2px);
+    border-color:var(--turquoise);
+    background:var(--matrix-3);
+  }
+  .reel-card .card-title{font-size:15.5px;}
+  .reel-card .card-sub{font-size:12.5px;}
+  .reel-card .platform{margin-top:10px;}
+
+  footer{
+    padding:44px 24px 56px;
+    text-align:center;
+    border-top:1px solid rgba(237,230,214,.14);
+  }
+  footer .brand-mini{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;font-size:22px;letter-spacing:.04em;color:var(--turquoise);
+  }
+  footer p{font-family:'Space Mono', monospace;font-size:12px;color:var(--bone-dim);margin:8px 0 0;}
+  footer a.contact{color:var(--gold);text-decoration:none;}
+  footer a.contact:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<div class="marquee-row" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">Founder · Artistic Director · Performing Arts Educator</div>
+  <h1 class="brand">ELECTRIC <em>TURQUOISE</em></h1>
+  <div class="subtitle">TESLA WOLFE — REEL &amp; PRESS LIBRARY</div>
+  <p class="bio">
+    <strong>Tesla Wolfe</strong> is a professional dancer, choreographer, actress, model, and producer from Ada, Oklahoma, of Seminole, Creek, and Absentee Shawnee descent — the first Native American model featured in <strong>Maxim Magazine</strong>. A former Vegas showgirl at the Bellagio's Mayfair Supper Club and choreographer for Insomniac Entertainment's EDC Las Vegas Mainstage, her screen credits include <strong>Yellowstone</strong> and <strong>Interior Chinatown</strong>. She is signed with Wilhelmina and N.T.A. Talent Agency, and founded <strong>Electric Turquoise Entertainment</strong>, a 501(c)(3) nonprofit dedicated to underprivileged talented performing artists.
+  </p>
+  <div class="sectors">
+    <span>Dance</span><span>Modeling</span><span>Acting</span><span>Holistic Well-Being</span><span>Education</span><span>Production</span>
+  </div>
+  <a class="links-cta" href="https://linktr.ee/tesla_wolfe?utm_source=linktree_profile_share&ltsid=360f915f-0563-45ec-be61-017ecbcae3cb" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+    All Links — Tesla Wolfe
+  </a>
+</header>
+
+<!-- FEATURED -->
+<section class="block">
+  <div class="section-head">
+    <span class="eyebrow">Now Showing</span>
+    <h2>Featured</h2>
+    <span class="section-note">Latest releases</span>
+  </div>
+  <div class="featured-grid">
+
+    <a class="featured-card" href="https://youtu.be/lmjRkDju5TI?is=IQXvalsU3HOhoVQz" target="_blank" rel="noopener">
+      <span class="tag gold">New</span>
+      <p class="card-title">This Is Indian Country: Sweethearts</p>
+      <p class="card-sub">The Electric Ladies — Native American Showgirls, Jazz Dance Performance</p>
+      <div class="platform">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg>
+        YouTube
+      </div>
+    </a>
+
+    <a class="featured-card" href="https://youtube.com/shorts/xBZFgRa0NYo?si=CyXUC4wA8hWYABLk" target="_blank" rel="noopener">
+      <span class="tag gold">New</span>
+      <p class="card-title">Electric Turquoise Promo — 2026</p>
+      <p class="card-sub">Brand short</p>
+      <div class="platform">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg>
+        YouTube Shorts
+      </div>
+    </a>
+
+    <a class="featured-card" href="https://youtu.be/OpLDXlbCM0g?feature=shared" target="_blank" rel="noopener">
+      <span class="tag teal">Live</span>
+      <p class="card-title">Sweet Native Emotion</p>
+      <p class="card-sub">Choreographer — Hard Rock Cafe, 2025</p>
+      <div class="platform">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg>
+        YouTube
+      </div>
+    </a>
+
+    <a class="featured-card" href="https://www.instagram.com/reel/DXDR8jWDcqb/?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">
+      <span class="tag teal">Intro</span>
+      <p class="card-title">Meet Electric Turquoise</p>
+      <p class="card-sub">Founder Tesla Wolfe introduces who we are and what we stand for — live at the Hard Rock Cafe, Las Vegas</p>
+      <div class="platform">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ACTING -->
+<section class="block">
+  <div class="section-head">
+    <span class="eyebrow">Reel Library</span>
+    <h2>Acting</h2>
+  </div>
+  <div class="reel-grid">
+
+    <a class="reel-card" href="https://youtu.be/5PQXwUeWoRc?is=54kpN4nEgu4H8HcQ" target="_blank" rel="noopener">
+      <p class="card-title">Acting Reel</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/UGshNotMvuI?is=ADjB2kS1Oicd0jlE" target="_blank" rel="noopener">
+      <p class="card-title">Acting Reel</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://www.instagram.com/teslawolfe?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
+      <p class="card-title">Tesla Wolfe</p>
+      <p class="card-sub">Instagram — Personal Profile</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- DANCE & CHOREOGRAPHY -->
+<section class="block">
+  <div class="section-head">
+    <span class="eyebrow">Reel Library</span>
+    <h2>Dance &amp; Choreography</h2>
+  </div>
+  <div class="reel-grid">
+
+    <a class="reel-card" href="https://youtu.be/-FlKZWk8aHA" target="_blank" rel="noopener">
+      <p class="card-title">Dance Reel</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/lmjRkDju5TI?si=fSRZtewP0t9J8Dkq" target="_blank" rel="noopener">
+      <p class="card-title">Jazz / Showgirl Choreography</p>
+      <p class="card-sub">Dance performance</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/wCD_X08Wws4?si=NG1an_A2JXBtH8sO" target="_blank" rel="noopener">
+      <p class="card-title">Burlesque Dance Choreo</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/UwyvPx1qRvg" target="_blank" rel="noopener">
+      <p class="card-title">Electric Turquoise Dance Company Reel</p>
+      <p class="card-sub">Company reel</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/XHvGBkKhGfM" target="_blank" rel="noopener">
+      <p class="card-title">Pole Reel</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://www.instagram.com/reel/C0w-G4jvlzL/?igsh=b25jZGlncWRscWVp" target="_blank" rel="noopener">
+      <p class="card-title">Savage Hip-Hop Choreography</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/liDCQ7EoTLY?si=OAyI1jsSdQ5L80mw" target="_blank" rel="noopener">
+      <p class="card-title">Hip-Hop Reel</p>
+      <p class="card-sub">Tesla Wolfe</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/92q7iFscIVc?si=sX9cvpJVgZND8ae4" target="_blank" rel="noopener">
+      <p class="card-title">Dance Fitness Class</p>
+      <p class="card-sub">Choreographer</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/eMNi90V6HfY?si=J6V0TNn6wbX5f7NC" target="_blank" rel="noopener">
+      <p class="card-title">Contemporary Dance</p>
+      <p class="card-sub">Electric Turquoise</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://www.instagram.com/reel/DCaMq-SSmHo/?igsh=MXJ4dzFnbDV4ejIycA==" target="_blank" rel="noopener">
+      <p class="card-title">Matriarch Heels Movement Choreography</p>
+      <p class="card-sub">Tesla Wolfe — Ballroom Dance</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- LIVE PERFORMANCES -->
+<section class="block">
+  <div class="section-head">
+    <span class="eyebrow">Reel Library</span>
+    <h2>Live Performances &amp; Shows</h2>
+  </div>
+  <div class="reel-grid">
+
+    <a class="reel-card" href="https://www.instagram.com/reel/DHIR-rqOXo2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
+      <p class="card-title">Native Guitars Rez 2025</p>
+      <p class="card-sub">"Pour Some Bepsi On Me"</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+    <a class="reel-card" href="https://youtu.be/nV1rDMrBHV4?si=nZx24EXitSwUC4xH" target="_blank" rel="noopener">
+      <p class="card-title">Pour Some Bepsi On Me</p>
+      <p class="card-sub">Choreographer — Hard Rock Cafe, 2025</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+    <a class="reel-card" href="https://www.instagram.com/reel/DHgkMGpvE2Y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
+      <p class="card-title">FNX Red Carpet Gala</p>
+      <p class="card-sub">May 2025</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FASHION & RUNWAY -->
+<section class="block">
+  <div class="section-head">
+    <span class="eyebrow">Reel Library</span>
+    <h2>Fashion &amp; Runway</h2>
+  </div>
+  <div class="reel-grid">
+
+    <a class="reel-card" href="https://www.instagram.com/reel/DNbUBhHyhZb/?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">
+      <p class="card-title">Sky Eagle Collection Fashion Show</p>
+      <p class="card-sub">Dance performance, 2025</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+    <a class="reel-card" href="https://www.instagram.com/reel/DOUEjhrkkDU/?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">
+      <p class="card-title">Native American / Indigenous Cancan Dance</p>
+      <p class="card-sub">2025</p>
+      <div class="platform">Instagram</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- COMPANY & BRAND -->
+<section class="block">
+  <div class="section-head">
+    <span class="eyebrow">Reel Library</span>
+    <h2>Company &amp; Brand</h2>
+  </div>
+  <div class="reel-grid">
+
+    <a class="reel-card" href="https://youtu.be/UwO_pKjBWGE?feature=shared" target="_blank" rel="noopener">
+      <p class="card-title">Electric Turquoise Demo Reel</p>
+      <p class="card-sub">Company reel</p>
+      <div class="platform">YouTube</div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="brand-mini">ELECTRIC TURQUOISE</div>
+  <p>501(c)(3) Performing Arts Nonprofit · Marina Del Rey, CA · Ada, OK</p>
+  <p><a class="contact" href="mailto:tesla@electricturquoise.com">tesla@electricturquoise.com</a> &nbsp;·&nbsp; <a class="contact" href="https://www.instagram.com/electricturquoise_" target="_blank" rel="noopener">@electricturquoise_</a></p>
+</footer>
+
+</body>
+</html>
