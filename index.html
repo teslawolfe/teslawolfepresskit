@@ -235,6 +235,47 @@
   .reel-card .card-sub{font-size:12.5px;}
   .reel-card .platform{margin-top:10px;}
 
+  /* ---- résumé ---- */
+  .resume-layout{
+    display:grid;
+    grid-template-columns:minmax(220px, 280px) 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  @media (max-width: 760px){ .resume-layout{grid-template-columns:1fr;} }
+  .resume-side{
+    background:linear-gradient(160deg, var(--matrix-3), var(--matrix-2));
+    border:1px solid rgba(212,169,71,.4);
+    border-radius:4px;
+    padding:22px 20px;
+  }
+  .resume-side .tagline{
+    font-style:italic;font-size:15px;color:var(--bone);margin:0 0 18px;
+  }
+  .resume-side h3, .resume-main h3{
+    font-family:'Space Mono', monospace;
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+    color:var(--gold);margin:0 0 10px;
+  }
+  .resume-side h3:not(:first-of-type){margin-top:22px;}
+  .resume-side ul{list-style:none;margin:0;padding:0;font-size:14.5px;color:var(--bone-dim);}
+  .resume-side li{padding:2px 0;}
+  .resume-side li strong{color:var(--bone);font-weight:600;}
+  .resume-main{display:grid;gap:26px;}
+  .resume-main h3{color:var(--turquoise);padding-bottom:8px;border-bottom:1px solid rgba(47,184,172,.3);}
+  .credits{list-style:none;margin:0;padding:0;}
+  .credits li{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:6px 0;
+    border-bottom:1px dashed rgba(237,230,214,.1);
+    font-size:15px;color:var(--bone);
+  }
+  .credits li span{
+    font-family:'Space Mono', monospace;font-size:11.5px;letter-spacing:.04em;
+    color:var(--bone-dim);text-align:right;flex:none;max-width:48%;
+  }
+  .resume-download{margin-top:22px;}
+
   footer{
     padding:44px 24px 56px;
     text-align:center;
@@ -281,6 +322,118 @@
   </a>
   </div>
 </header>
+
+<!-- RÉSUMÉ -->
+<section class="block" id="resume">
+  <div class="section-head">
+    <span class="eyebrow">Artist Résumé</span>
+    <h2>Credits &amp; Training</h2>
+    <span class="section-note">2026</span>
+  </div>
+  <div class="resume-layout">
+    <aside class="resume-side">
+      <p class="tagline">Proud Native American woman. Entrepreneur. Founder &amp; Artistic Director of Electric Turquoise Entertainment.</p>
+      <h3>Agents</h3>
+      <ul>
+        <li><strong>N.T.A. Talent Agency</strong></li>
+        <li><strong>Wilhelmina Modeling Agency</strong></li>
+      </ul>
+      <h3>Stats</h3>
+      <ul>
+        <li>Native American — Seminole, Creek, Absentee Shawnee</li>
+        <li><strong>SAG-AFTRA Eligible</strong></li>
+        <li>Height: 5′7″</li>
+        <li>Weight: 111</li>
+        <li>Hair: Dark Brown</li>
+        <li>Eyes: Hazel</li>
+      </ul>
+      <h3>Based In</h3>
+      <ul><li>Los Angeles, CA</li></ul>
+      <a class="links-cta resume-download" href="/images/tesla-wolfe-artist-resume-2026.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Download PDF
+      </a>
+    </aside>
+    <div class="resume-main">
+      <div>
+        <h3>Film &amp; TV</h3>
+        <ul class="credits">
+          <li>Yellowstone — Season 5<span>Actress</span></li>
+          <li>Caesars Palace Commercial<span>Lead Actress</span></li>
+          <li>Maxim Magazine<span>International Model</span></li>
+          <li>Interior Chinatown<span>Actress</span></li>
+          <li>Oklahoma Dreamin’ — Feature Film<span>Lead Actress</span></li>
+          <li>This Is Indian Country — FNX TV Show<span>Documentary of Tesla Wolfe</span></li>
+          <li>On Smoother Dirt<span>Actress</span></li>
+          <li>Features — Feature Film / Music Video<span>Lead Actress</span></li>
+          <li>Adam Ruins Everything — truTV Series<span>Dancer</span></li>
+          <li>Treasure King — TV Series<span>Actress</span></li>
+          <li>Newport Beach Film Festival 2019 Trailer<span>Actress</span></li>
+          <li>Sosylosy — USArmenia TV Series<span>Actress</span></li>
+          <li>American Hun Story — Amazon Prime<span>Lead Actress</span></li>
+          <li>Supernatural — Music Video<span>Dancer</span></li>
+          <li>Free Spirit Underwear — International Commercial<span>Model</span></li>
+          <li>And Still Smiling<span>Actress</span></li>
+          <li>NBA OKC Tulsa 66ers Commercial<span>Dancer</span></li>
+          <li>Come Thru — Music Video, FNX Network<span>Actress</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Stage · Dance · Theatre · Runway</h3>
+        <ul class="credits">
+          <li>Bellagio Resort — Mayfair Supper Club<span>Professional Dancer / Pole / Lyra</span></li>
+          <li>Cherry Boom Boom<span>Professional Dancer</span></li>
+          <li>Electric Turquoise Entertainment<span>Professional Dancer / Choreographer</span></li>
+          <li>EDC Las Vegas — Mainstage<span>Dancer, Insomniac Events</span></li>
+          <li>EDC Mexico — Mainstage<span>Dancer, Insomniac Events</span></li>
+          <li>Day Trip 2022<span>Dancer, Insomniac Events</span></li>
+          <li>Chickasaw Nation Prod. — The Journey Continues<span>Dancer</span></li>
+          <li>8&amp;1 Pro Dance Company — Exchange St.<span>Dancer / Actress</span></li>
+          <li>8&amp;1 Pro Dance Company — Lines Show<span>Dancer / Actress</span></li>
+          <li>Tulsa 66ers NBA Dance Team<span>Captain</span></li>
+          <li>Bear Grease Musical — Canada Tour<span>Actress / Dancer</span></li>
+          <li>SWAIA Native Indigenous Fashion Shows<span>2023, 2024, 2025</span></li>
+          <li>Native Fashion Week<span>2025</span></li>
+          <li>Fashion Art Toronto<span>2025</span></li>
+          <li>Vancouver Indigenous Fashion Week 2025<span>Model / Contemporary Dancer</span></li>
+          <li>LA Fashion Week</li>
+          <li>Rebellious Threads Fashion Show<span>Model / Ballet Dancer</span></li>
+          <li>Sycuan Fashion Show<span>2024, 2025</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Teaching · Leadership · Choreography</h3>
+        <ul class="credits">
+          <li>Native Women’s Leadership Academy — Native Action Network<span>Keynote Speaker, Instructor &amp; Mentor</span></li>
+          <li>Electric Turquoise Entertainment<span>Artistic Director, Mentor, Choreographer</span></li>
+          <li>Unity Mid Conference 2026<span>Workshop Instructor</span></li>
+          <li>Indigenous Creations — Canada<span>Instructor / Motivational Speaker</span></li>
+          <li>Royalty Dance Academy — Rockwall, TX<span>Instructor / Choreographer</span></li>
+          <li>Eclipse Entertainment — Dallas, TX<span>Dancer / Choreographer</span></li>
+          <li>Chickasaw Nation Arts Academy — Ada, OK<span>Dance Instructor</span></li>
+          <li>Tulsa 66ers NBA Dance Team — Tulsa, OK<span>Dance Captain / Team Member</span></li>
+          <li>ILLustr8tive Dance Studios — Dallas, TX<span>Teacher / Choreographer</span></li>
+          <li>Dallas ISD After School — Dallas, TX<span>Dance Instructor</span></li>
+          <li>Anoush Dance Studio<span>Teacher / Choreographer</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Education &amp; Training</h3>
+        <ul class="credits">
+          <li>Lee Strasberg Film &amp; Theatre Institute</li>
+          <li>Ivana Chubbuck School of Acting</li>
+          <li>Relativity School of Arts<span>Dance / Acting</span></li>
+          <li>Cherry Boom Boom<span>Burlesque Dance Intensive</span></li>
+          <li>Rocking Hotties<span>Burlesque Heels Intensive</span></li>
+          <li>8&amp;1 Pro Dance Company<span>Professional Jazz / Contemporary</span></li>
+          <li>John Casablancas<span>Runway Modeling / Acting</span></li>
+          <li>Central Oklahoma Dance Studio<span>Classically Trained Dance Styles</span></li>
+          <li>Millennium Dance Complex<span>Los Angeles</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FEATURED -->
 <section class="block">
